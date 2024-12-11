@@ -1,0 +1,37 @@
+<button mat-icon-button style="float: right;margin: 5px;align-self: end" matDialogClose>
+  <mat-icon>close</mat-icon>
+</button>
+<mat-dialog-content>
+  <header>
+    <h1> Add product </h1>
+  </header>
+  <p>
+    <mat-form-field>
+      <input matInput placeholder="Enter Name" [(ngModel)]="addProduct.name">
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <input type="number" matInput placeholder="Enter mobile" [(ngModel)]="addProduct.mobile">
+      <mat-icon matSuffix>mobile</mat-icon>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <input type="email" matInput placeholder="Enter email" [(ngModel)]="addProduct.emailid">
+      <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <input matInput placeholder="Enter address" [(ngModel)]="addProduct.address">
+      <mat-icon matSuffix>address</mat-icon>
+    </mat-form-field>
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button *ngIf="isEditMode" mat-raised-button class="btn btn-primary" (click)="put()">edit</button>
+  <button *ngIf="!isEditMode" mat-raised-button class="btn btn-primary" (click)="submit()">Add</button>
+  <button mat-raised-button class="btn btn-close" matDialogClose>Cancel</button>
+</mat-dialog-actions>
