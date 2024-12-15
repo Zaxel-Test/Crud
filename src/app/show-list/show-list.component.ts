@@ -1,9 +1,9 @@
 import { Component, OnDestroy } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
-import { DataListService } from './services/data-list.service';
+import { DataListService } from '../services/data-list.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogCategoryComponent } from '../dialog-category/dialog-category.component';
+import { DialogCustomerComponent } from '../dialog-customer/dialog-customer.component';
 import { Subscription } from 'rxjs';
 
 export interface ICustomer {
@@ -23,7 +23,7 @@ export interface ICustomer {
   providers: [DataListService],
 })
 export class ShowListComponent implements OnDestroy {
-  dataProducts: ICustomer[] = [];
+  dataCustomers: ICustomer[] = [];
 
   constructor(
     public service: DataListService,
@@ -31,13 +31,13 @@ export class ShowListComponent implements OnDestroy {
   ) {}
 
   ngOnDestroy(): void {
-    this.productSubscription.unsubscribe();
+    this.customerSubscription.unsubscribe();
   }
 
-  productSubscription: Subscription = new Subscription();
+  customerSubscription: Subscription = new Subscription();
 
   ngOnInit() {
-    this.getProducts();
+    this.getCustomers();
   }
 
   displayedColumns: string[] = [
@@ -49,22 +49,22 @@ export class ShowListComponent implements OnDestroy {
     'button',
   ];
 
-  getProducts() {
-    this.productSubscription = this.service.getData().subscribe((res: any) => {
-      this.dataProducts = res.data;
+  getCustomers() {
+    this.customerSubscription = this.service.getData().subscribe((res: any) => {
+      this.dataCustomers = res.data;
     });
   }
 
   //@ViewChild(MatTable) table!: MatTable<IProducts>;
 
   openDialog() {
-    this.Dialog.open(DialogCategoryComponent, {
+    this.Dialog.open(DialogCustomerComponent, {
       width: '350px',
     });
   }
 
   onEdit(custId: number) {
-    this.Dialog.open(DialogCategoryComponent, {
+    const dialogRef = this.Dialog.open(DialogCustomerComponent, {
       data: { custId: custId, isEditMode: true },
       width: '350px',
     });
@@ -80,7 +80,7 @@ export class ShowListComponent implements OnDestroy {
           alert(res.message);
         }
       });
-      this.getProducts();
+      this.getCustomers();
     }
   }
 }

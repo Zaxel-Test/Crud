@@ -1,31 +1,32 @@
 <button mat-icon-button style="float: right;margin: 5px;align-self: end" matDialogClose>
   <mat-icon>close</mat-icon>
 </button>
-<mat-dialog-content>
+<mat-dialog-content [formGroup]="cusomerForm">
   <header>
     <h1> Add product </h1>
   </header>
   <p>
     <mat-form-field>
-      <input matInput placeholder="Enter Name" [(ngModel)]="addProduct.name">
+      <input matInput placeholder="Enter Name" formControlName="name">
       <mat-icon matSuffix>person</mat-icon>
+
     </mat-form-field>
   </p>
   <p>
     <mat-form-field>
-      <input type="number" matInput placeholder="Enter mobile" [(ngModel)]="addProduct.mobile">
+      <input type="number" matInput placeholder="Enter mobile" formControlName="mobile">
       <mat-icon matSuffix>mobile</mat-icon>
     </mat-form-field>
   </p>
   <p>
     <mat-form-field>
-      <input type="email" matInput placeholder="Enter email" [(ngModel)]="addProduct.emailid">
+      <input type="email" matInput placeholder="Enter email" formControlName="emailId">
       <mat-icon matSuffix>email</mat-icon>
     </mat-form-field>
   </p>
   <p>
     <mat-form-field>
-      <input matInput placeholder="Enter address" [(ngModel)]="addProduct.address">
+      <input matInput placeholder="Enter address" formControlName="address">
       <mat-icon matSuffix>address</mat-icon>
     </mat-form-field>
   </p>
