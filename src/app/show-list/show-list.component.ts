@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogCustomerComponent } from '../dialog-customer/dialog-customer.component';
 import { Subscription } from 'rxjs';
 import { UpperCasePipe } from '../pipe/upper-case.pipe';
+import { HighlightDirective } from '../directives/highlight.directive';
 
 export interface ICustomer {
   custId: number;
@@ -17,7 +18,7 @@ export interface ICustomer {
 
 @Component({
   selector: 'app-show-list',
-  imports: [MatButtonModule, MatTableModule, UpperCasePipe],
+  imports: [MatButtonModule, MatTableModule, UpperCasePipe, HighlightDirective],
   standalone: true,
   templateUrl: './show-list.component.html',
   styleUrl: './show-list.component.scss',
