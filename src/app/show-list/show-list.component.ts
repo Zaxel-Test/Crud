@@ -5,6 +5,7 @@ import { DataListService } from '../services/data-list.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCustomerComponent } from '../dialog-customer/dialog-customer.component';
 import { Subscription } from 'rxjs';
+import { UpperCasePipe } from '../pipe/upper-case.pipe';
 
 export interface ICustomer {
   custId: number;
@@ -16,7 +17,7 @@ export interface ICustomer {
 
 @Component({
   selector: 'app-show-list',
-  imports: [MatButtonModule, MatTableModule],
+  imports: [MatButtonModule, MatTableModule, UpperCasePipe],
   standalone: true,
   templateUrl: './show-list.component.html',
   styleUrl: './show-list.component.scss',

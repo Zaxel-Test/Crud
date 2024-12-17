@@ -5,8 +5,7 @@ import { RouterModule } from '@angular/router';
   selector: 'app-main',
   imports: [RouterModule],
   templateUrl: './main.component.html',
-  styleUrl: './main.component.scss'
+  standalone: true,
+  styleUrl: './main.component.scss',
 })
-export class MainComponent {
-
-}
+export class MainComponent {}

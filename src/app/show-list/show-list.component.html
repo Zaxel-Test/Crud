@@ -26,7 +26,7 @@
 
   <ng-container matColumnDef="emailid">
     <th mat-header-cell *matHeaderCellDef>emailid</th>
-    <td mat-cell *matCellDef="let element">{{ element.emailid }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.emailid | upperCase }}</td>
   </ng-container>
 
   <ng-container matColumnDef="address">
